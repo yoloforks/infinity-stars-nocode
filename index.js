@@ -38,7 +38,7 @@ async function updateStargazersList() {
 	}
 
 	const updatedStargazers = stargazersFetched.map((x, i) => `${i + 1}. [@${x.login}](${x.html_url})`).join("\n");
-	const updatedDescription = readmeData.replace(/\d+\//gm, `${updatedStargazers.length}/`);
+	const updatedDescription = readmeData.replace(/\d+\//gm, `${stargazersFetched.length}/`);
 
 	writeFileSync("README.md", `${updatedDescription}\n\n${updatedStargazers}\n`, "utf8");
 }
