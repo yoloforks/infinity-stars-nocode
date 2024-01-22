@@ -12,7 +12,7 @@ async function updateStargazersList() {
 	try {
 		const readReadme = readFileSync("README.md", "utf8");
 
-		readmeData = readReadme.replace(/\d+. \[.+]\(.+\)/gm, "").trimEnd();
+		readmeData = readReadme.replace(/^\d+\. \[@.*]\(.*\)/gm, "").trimEnd();
 	} catch (err) {
 		throw new Error(err);
 	}
